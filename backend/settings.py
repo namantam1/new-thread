@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-try:
+if not os.environ.get('DATABASE_URL'):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -88,8 +88,7 @@ try:
             'PORT': 5432
         }
     }
-except Exception as e:
-    print(e)
+else:
     DATABASES = {
         'default': dj_database_url.config(conn_max_age=600)
     }
