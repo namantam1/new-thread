@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get(
     'SECRET_KEY', '+94(qsqm#!h!8c2!5s3aizs-bujc!u=^g@v8zfur5q*qpfg2cf')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG') != 'True'
+DEBUG = os.environ.get('DEBUG') == 'True'
 
 ALLOWED_HOSTS = ['new-thread.herokuapp.com', '127.0.0.1', 'localhost']
 
@@ -131,7 +131,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIR = [
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'build/static')
 ]
 
